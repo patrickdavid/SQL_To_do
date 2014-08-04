@@ -16,4 +16,9 @@ describe List do
     list = List.new('Epicodus Stuff')
     expect(list).to be_an_instance_of List
   end
+
+    it 'tells you its name' do
+    list = List.new('Epicodus Stuff')
+    expect(list.name).to eq 'Epicodus Stuff'
+  end
 end
