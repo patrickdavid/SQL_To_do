@@ -21,4 +21,7 @@ class List
     lists
   end
 
+  def save
+    DB.exec("INSERT INTO lists (name) VALUES ('#{@name}');")
+  end
 end
