@@ -37,4 +37,10 @@ describe List do
     list.save
     expect(List.all).to eq [list]
   end
+
+  it 'sets its ID when you save it' do
+    list = List.new('Epicodus Stuff')
+    list.save
+    expect(list.id).to be_an_instance_of Fixnum
+  end
 end
