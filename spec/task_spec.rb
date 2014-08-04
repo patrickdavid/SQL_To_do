@@ -5,7 +5,7 @@ require 'pg'
 
 DB = PG.connect(:dbname => 'to_do_test')
 
-Rspec.configure do |config|
+RSpec.configure do |config|
   config.after(:each) do
     DB.exec("DELETE FROM tasks *;")
   end
