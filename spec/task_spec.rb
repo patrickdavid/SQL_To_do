@@ -31,4 +31,13 @@ describe Task do
     task2 = Task.new('learn SQL', 1)
     expect(task1).to eq task2
   end
+
+  it 'will remove the task from the list' do
+    task1 = Task.new('learn SQL', 1)
+    task2 = Task.new('learn PHP', 2)
+    task1.save
+    task2.save
+    task1.delete
+    expect(Task.all).to eq [task2]
+  end
 end

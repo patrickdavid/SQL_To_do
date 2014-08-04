@@ -1,6 +1,10 @@
 class List
-  def initialize(name)
+
+  def initialize(name, id=nil)
     @name = name
+    @id = id
+    # @name = hash['name']
+    # @id = hash['id']
   end
 
   def name
@@ -20,7 +24,9 @@ class List
     lists = []
     results.each do |result|
       name = result['name']
-      lists << List.new(name)
+      id = result['id']
+      # hash = {:name => name, :id => id}
+      lists << List.new(name, id)
     end
     lists
   end
