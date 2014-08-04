@@ -10,13 +10,11 @@ class Task
   end
 
   def save
-    database = PG.connect(:dbname => 'to_do')
-    database.exec("INSERT INTO tasks (name) VALUES ('#{@name}');")
+    DB.exec("INSERT INTO tasks (name) VALUES ('#{@name}');")
   end
 
   def self.all
-    database = PG.connect(:dbname => 'to_do')
-    results = database.exec("SELECT * FROM tasks;")
+    results = DB.exec("SELECT * FROM tasks;")
     tasks =[]
     results.each do |result|
       name = result['name']
