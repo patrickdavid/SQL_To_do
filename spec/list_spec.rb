@@ -27,6 +27,13 @@ describe List do
     expect(List.all).to eq [list]
   end
 
+  it 'will not save a if there is already one with the same name saved' do
+    list = List.new('Epicodus Stuff')
+    list.save
+    another_list = List.new('Epicodus Stuff')
+    expect(another_list.save).to eq false
+  end
+
   it 'sets its ID when you save it' do
     list = List.new('Epicodus Stuff')
     list.save

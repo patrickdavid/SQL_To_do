@@ -32,8 +32,13 @@ class List
   end
 
   def save
-    results = DB.exec("INSERT INTO lists (name) VALUES ('#{@name}') RETURNING id;")
-    @id = results.first['id'].to_i
+    if List.all.include?(self)
+      @unique_list = false
+      return false
+    else
+      results = DB.exec("INSERT INTO lists (name) VALUES ('#{@name}') RETURNING id;")
+      @id = results.first['id'].to_i
+    end
   end
 
   def delete

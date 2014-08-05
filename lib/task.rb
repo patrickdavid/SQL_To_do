@@ -15,6 +15,7 @@ class Task
   end
 
   def save
+    @current_list = list_id
     DB.exec("INSERT INTO tasks (name, list_id) VALUES ('#{@name}', #{@list_id});")
   end
 
@@ -34,8 +35,8 @@ class Task
   end
 
   def delete
-    # input_name = name
-    DB.exec("DELETE FROM tasks WHERE name = '#{@name}';")
+    @current_list = @list_id
+    DB.exec("DELETE FROM tasks WHERE (name = '#{@name}' AND list_id = #{@list_id});")
   end
 end
 
