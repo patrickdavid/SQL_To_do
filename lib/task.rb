@@ -40,11 +40,10 @@ class Task
   end
 
   def self.show_tasks
-  puts "Here are all of your tasks for list: #{@list.name}"
-  @current_list.tasks.each do |item|
-    task_name = @task.name
-    puts "task: #{item.name}"
-    end
+  puts "Here are all of your tasks for list: #{@list}"
+  Task.all.each do |item|
+    puts item.name
+     end
   end
 end
 
