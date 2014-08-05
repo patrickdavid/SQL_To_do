@@ -41,7 +41,6 @@ def add_list
   input_list_name = gets.chomp
   @input_list_name = input_list_name
   @list = List.new(input_list_name)
-  binding.pry
   if @list.save
     @current_list = @list
     puts "List added.\n\n"

@@ -45,4 +45,11 @@ class List
     # input_name = name
     DB.exec("DELETE FROM lists WHERE name = '#{@name}';")
   end
+
+  def self.show_lists
+  puts "Here are all of your lists:"
+  List.all.each do |list|
+    puts  "list_name: #{list.name} list_id: #{list.id}"
+    end
+  end
 end

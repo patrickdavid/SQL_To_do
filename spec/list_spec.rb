@@ -48,4 +48,12 @@ describe List do
     list1.delete
     expect(List.all).to eq [list2]
   end
+
+  it 'will show all the list' do
+    list1 = List.new('Home', 1)
+    list2 = List.new('School', 2)
+    list1.save
+    list2.save
+    expect(List.show_lists).to eq [list1,list2]
+  end
 end

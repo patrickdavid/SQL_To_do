@@ -38,5 +38,13 @@ class Task
     @current_list = @list_id
     DB.exec("DELETE FROM tasks WHERE (name = '#{@name}' AND list_id = #{@list_id});")
   end
+
+  def self.show_tasks
+  puts "Here are all of your tasks for list: #{@list.name}"
+  @current_list.tasks.each do |item|
+    task_name = @task.name
+    puts "task: #{item.name}"
+    end
+  end
 end
 
