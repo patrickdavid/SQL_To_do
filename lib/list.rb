@@ -35,4 +35,9 @@ class List
     results = DB.exec("INSERT INTO lists (name) VALUES ('#{@name}') RETURNING id;")
     @id = results.first['id'].to_i
   end
+
+  def delete
+    # input_name = name
+    DB.exec("DELETE FROM lists WHERE name = '#{@name}';")
+  end
 end

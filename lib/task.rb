@@ -35,7 +35,7 @@ class Task
 
   def delete
     # input_name = name
-    DB.exec("DELETE FROM tasks WHERE name = #{@name};")
+    DB.exec("DELETE FROM tasks WHERE name = '#{@name}';")
   end
 end
 

@@ -32,4 +32,13 @@ describe List do
     list.save
     expect(list.id).to be_an_instance_of Fixnum
   end
+
+  it 'will remove a list' do
+    list1 = List.new('Home', 1)
+    list2 = List.new('School', 2)
+    list1.save
+    list2.save
+    list1.delete
+    expect(List.all).to eq [list2]
+  end
 end
